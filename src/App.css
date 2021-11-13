@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+@font-face {
+    font-family: Montserrat;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  }
+
+body {
+    font-family: Montserrat;
+    background-image: url("https://wallpaperbat.com/img/558379-white-hd-wallpaper-full-hd-background-free-dwonload.jpg");
+}
+.titulo {
+    padding: 8px;
+    background-color: rgb(231, 132, 75);
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: orange;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
