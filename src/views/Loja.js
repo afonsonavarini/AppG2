@@ -1,10 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react'
 import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { saveCarro } from '../services/Firebase';
-import { useHistory } from "react-router-dom";
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -64,11 +60,6 @@ export default function Loja() {
     }
 
     const deletar = async (id) => {
-        await deleteCarro(id)
-        await pegarCarro()
-    } 
-
-    const add = async (id) => {
         await deleteCarro(id)
         await pegarCarro()
     } 
