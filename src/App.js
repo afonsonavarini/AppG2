@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter, BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { isAuthenticated } from './services/Firebase'
 import Login from './views/Login'
 import Home from './views/Home'
