@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { deleteContato, getContato, saveContato} from '../services/Firebase';
+import { saveContato } from '../services/Firebase';
 import { useHistory } from "react-router-dom";
 
 export default function Contato() {
