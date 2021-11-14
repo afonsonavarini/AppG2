@@ -45,7 +45,6 @@ export default function CarrosLista() {
         }
         try {
             await saveCarro(objeto)
-            history.push("/carroslista")
         } catch (error) {
             console.log(error)
         }
