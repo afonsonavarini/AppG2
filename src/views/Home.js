@@ -1,10 +1,5 @@
 import React from 'react'
-import Box from '@mui/material/Box';
-import Alert from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
-import Collapse from '@mui/material/Collapse';
 import Button from '@mui/material/Button';
-import CloseIcon from '@mui/icons-material/Close';
 import Grid from '@mui/material/Grid';
 import { useHistory } from "react-router-dom";
 import "../App.css";
@@ -25,8 +20,6 @@ export default function Home() {
         await history.push("/recados")
       }
     let history = useHistory();
-    
-    const [open, setOpen] = React.useState(true);
 
     return (
         <div className="aba">
