@@ -82,7 +82,6 @@ export default function Loja() {
         }
         try {
             await saveCompra(objeto)
-            history.push("/carrolista")
         } catch (error) {
             console.log(error)
         }
