@@ -1,8 +1,6 @@
 import React from 'react'
-import Grid from '@mui/material/Grid';
 import { useHistory } from "react-router-dom";
-import { logoff } from '../services/Firebase'
-import Button from '@mui/material/Button';  
+import { logoff } from '../services/Firebase'  
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
