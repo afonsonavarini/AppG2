@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react'
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import { deleteContato, getContato, saveContato } from '../services/Firebase';
+import { deleteContato, getContato } from '../services/Firebase';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -29,22 +29,6 @@ export default function Dados() {
     const deletar = async (id) => {
         await deleteContato(id)
         await pegarContato()
-    }
-
-    const save = async (nome, email, assunto, mensagem) => {
-
-        let objeto = {
-            nome: nome,
-            email: email,
-            assunto: assunto,
-            mensagem: mensagem
-        }
-        try {
-            await saveContato(objeto)
-            history.push("/contato")
-        } catch (error) {
-            console.log(error)
-        }
     }
 
     const redirect = async () => {
