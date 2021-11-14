@@ -1,13 +1,10 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import React, { useState, useLayoutEffect } from 'react'
-import { storageSave, storageRemove, storageGet } from "../services/Storage"
+import { storageGet } from "../services/Storage"
 import { login } from '../services/Firebase'
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { InputAdornment } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
@@ -17,7 +14,6 @@ import Modal from '@mui/material/Modal';
 
 function Registro() {
   let history = useHistory();
-  const [lembreme, setLembreme] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -27,23 +23,9 @@ function Registro() {
     if (emailStorage) {
       setEmail(emailStorage)
       setPassword(passwordStorage)
-      setLembreme(true)
     }
 
   }, [])
-
-  const handleLembreme = (e) => {
-    setLembreme(e.target.checked)
-
-    if (e.target.checked === true) {
-      storageSave("email", email)
-      storageSave("password", password)
-    } else {
-      storageRemove("email")
-      storageRemove("password")
-    }
-  }
-
 
   const efetuarLogin = async () => {
 
