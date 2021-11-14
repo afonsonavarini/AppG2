@@ -7,7 +7,7 @@ import Checkbox from '@mui/material/Checkbox';
 import React, { useState, useLayoutEffect } from 'react'
 import { storageSave, storageRemove, storageGet } from "../services/Storage"
 import { login } from '../services/Firebase'
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { InputAdornment } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
