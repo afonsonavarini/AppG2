@@ -25,3 +25,10 @@ body {
     text-align: center;
 }
 
+.middle {
+    margin-top: 560px;
+    margin-left: 45px;
+    position: absolute;
+    text-align: center;
+    color: red;
+}
