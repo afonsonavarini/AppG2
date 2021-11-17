@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import React, { useState, useLayoutEffect } from 'react'
 import { storageGet } from "../services/Storage"
-import { login } from '../services/Firebase'
+import { registrar } from '../services/Firebase'
 import { useHistory } from "react-router-dom";
 import { InputAdornment } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
@@ -16,6 +16,7 @@ function Registro() {
   let history = useHistory();
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [msg, setMsg] = useState("")
 
   useLayoutEffect(() => {
     let emailStorage = storageGet("email")
@@ -27,11 +28,11 @@ function Registro() {
 
   }, [])
 
-  const efetuarLogin = async () => {
+  const efetuarRegistro = async () => {
 
-    login(email, password)
-      .then(() => history.push("/home"))
-      .catch(error => console.log(error))
+    registrar(email, password)
+      .then(() => history.push("/login"))
+      .catch(error => setMsg(error))
   }
 
   const redirect = async () => {
@@ -132,10 +133,12 @@ function Registro() {
                 </Box>
             </Modal>
             <div style={{height: 26}} />
-            <Button color="warning" variant="contained" size="medium" onClick={efetuarLogin}>
+            <Button color="warning" variant="contained" size="medium" onClick={efetuarRegistro}>
               Registrar
             </Button>
-            <div style={{height: 20}} />
+            <div className="middle" style={{height: 20}}>
+            {msg}
+            </div>
             <Button color="warning" onClick={redirect}>
               Já tem uma conta?
             </Button>
