@@ -12,12 +12,16 @@ import { InputAdornment } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 
+
+
 function Login() {
   let history = useHistory();
   const [lembreme, setLembreme] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-
+  const [msg, setMsg] = useState("")
+  
+ 
   useLayoutEffect(() => {
     let emailStorage = storageGet("email")
     let passwordStorage = storageGet("password")
@@ -46,7 +50,7 @@ function Login() {
 
     login(email, password)
       .then(() => history.push("/home"))
-      .catch(error => console.log(error))
+      .catch(error => setMsg(error))
   }
 
   const redirect = async () => {
@@ -58,6 +62,7 @@ function Login() {
   const redirect3 = async () => {
     await history.push("/dados")
   }
+
 
 
   return (
@@ -80,7 +85,6 @@ function Login() {
           justify="space-between"
           style={{padding: 10}}
         >
-          <div />
           <div style={{display: "flex", flexDirection: "column", maxWidth: 400, minWidth: 300,}}>
             <Grid container justify="center">
               <img 
@@ -129,6 +133,9 @@ function Login() {
             <Button color="warning" variant="contained" size="medium" onClick={efetuarLogin}>
               Login
             </Button>
+            <div className="middle" style={{height: 20}}>
+            {msg}
+            </div>
             <div style={{height: 20}} />
             <Button color="warning" onClick={redirect}>
               Não tem uma conta?
