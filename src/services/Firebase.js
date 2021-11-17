@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"
 import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
 
@@ -30,7 +30,24 @@ export const login = (email, password) => {
       })
       .catch((error) => {
         storageRemove("TOKEN_KEY")
-        reject(error)
+        if (error.code === "auth/wrong-password")
+          reject("Usuário ou senha inválidos!")
+        else
+          reject("Usuário ou senha inválidos!")
+      })
+  })
+}
+
+
+export const registrar = (email, password) => {
+  return new Promise((resolve, reject) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((usuario) => {
+        storageSave("TOKEN_KEY", usuario.user.uid)
+        resolve(true)
+      })
+      .catch(() => {
+        reject("Usuário já cadastrado!")
       })
   })
 }
